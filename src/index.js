@@ -21,14 +21,21 @@ const refs = {
 refs.inputRef.addEventListener('change', addTheme);
 refs.inputRef.addEventListener('change', addlocalStorage);
 
+function toChangeClass(addClass, removeClass) {
+  refs.bodyRef.classList.add(addClass);
+  refs.bodyRef.classList.remove(removeClass);
+}
+
 function addTheme(evt) {
   const check = refs.inputRef.checked;
   if (check) {
-    refs.bodyRef.classList.add(Theme.DARK);
-    refs.bodyRef.classList.remove(Theme.LIGHT);
+    toChangeClass(Theme.DARK, Theme.LIGHT);
+    // refs.bodyRef.classList.add(Theme.DARK);
+    // refs.bodyRef.classList.remove(Theme.LIGHT);
   } else {
-    refs.bodyRef.classList.add(Theme.LIGHT);
-    refs.bodyRef.classList.remove(Theme.DARK);
+    toChangeClass(Theme.LIGHT, Theme.DARK);
+    // refs.bodyRef.classList.add(Theme.LIGHT);
+    // refs.bodyRef.classList.remove(Theme.DARK);
   }
 }
 
